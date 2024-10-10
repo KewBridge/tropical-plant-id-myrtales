@@ -49,10 +49,10 @@ This assumes that you have cloned the repository to a machine where you have: (a
 ## Who's involved
 
 - [Nicky Nicolson](https://github.com/nickynicolson), Digital collections
-- [Amy Fiddes](https://github.com/amyfiddes), science intern, digital collections
+- [Amy Fiddes](https://github.com/amyfiddes), science intern from the University of Sheffield, Digital collections
 - [Eve Lucas](https://github.com/el12kg), Accelerated taxonomy
-- Tzu Li Yang, summer intern, Accelerated taxonomy
-  
+- Tzu Li Yang, summer intern from the National Taiwan University (NTU), Accelerated taxonomy
+
 ## How to contribute
 
 You can submit issues [here](https://github.com/KewBridge/tropical-plant-id-myrtales/issues)
