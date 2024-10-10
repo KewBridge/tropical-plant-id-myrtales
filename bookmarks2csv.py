@@ -9,6 +9,12 @@ def getCatalogNumberByOccurrence(gbif_occurrence_id):
     gbif_occ = occ.get(key = gbif_occurrence_id)
     return gbif_occ['catalogNumber']
 
+
+def url2ImageUrl(url):
+    image_url = 'https:' + url.split('src=')[1]
+    return image_url
+
+
 def parse_bookmarks_to_csv(input_file, output_file):
     # Open and read the HTML file
     with open(input_file, 'r', encoding='utf-8') as file:
@@ -31,8 +37,12 @@ def parse_bookmarks_to_csv(input_file, output_file):
                 gbif_occurrence_id = gbif_url_elems[gbif_url_elems.index('occurrence')+1]
                 # Split the tags by comma
                 tags = tagged_link['tags'].split(',')
+                # Get image URL from bookmarked data portal URL
+                image_url = url2ImageUrl(gbif_url)
+                # Get catalog number
+                catalogNumber = getCatalogNumberByOccurrence(gbif_occurrence_id)
                 # Assemble a dictionary holding all the data and save to our list
-                family_data.append({'family':family.text, 'GBIF_occurrence_ID':gbif_occurrence_id, 'tags':tags})
+                family_data.append({'family':family.text, 'GBIF_occurrence_ID':gbif_occurrence_id, 'catalogNumber':catalogNumber, 'image_url':image_url, 'tags':tags})
         
     # Convert the family data list to a pandas dataframe
     df = pd.DataFrame(family_data)
@@ -44,8 +54,6 @@ def parse_bookmarks_to_csv(input_file, output_file):
     df = pd.concat([df, tags_dummies], axis=1)
     # Discard the "tags" column as is no longer needed
     df.drop(columns=['tags'], inplace=True)
-
-    df['catalogNumber'] = df.GBIF_occurrence_ID.apply(getCatalogNumberByOccurrence)
 
     # Save the dataframe as a tab separated file
     df.to_csv(output_file, sep='\t', encoding='utf8', index=False)
