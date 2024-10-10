@@ -28,7 +28,7 @@ This repository manages a short pilot project where we have scored herbarium spe
 
 This assumes that you have cloned the repository to a machine where you have: (a) a local installation of Python, (b) the build tool `make` and (c) a command line terminal program to run the following commands:
 
-1. Set up a virtual environment: `python -m venv env`
+1. Set up a virtual environment: `python -m venv env` and activate it: `source env/Scripts/activate`
 2. Install the libraries: `pip install -r requirements.txt`
 3. Run the conversion process: `make csv`
 
