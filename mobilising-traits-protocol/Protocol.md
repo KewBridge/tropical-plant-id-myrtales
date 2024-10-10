@@ -65,4 +65,4 @@
 - Selecting the bookmarks **'Mobilising taxonimic data'**
 - **Export Bookmarks to HTML files**
 
-![Step9](images/9.png) ![Step10](images/10.png)
+![Step9](images/9.png)
