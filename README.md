@@ -51,7 +51,7 @@ This assumes that you have cloned the repository to a machine where you have: (a
 - [Nicky Nicolson](https://github.com/nickynicolson), Digital collections
 - [Amy Fiddes](https://github.com/amyfiddes), science intern from the University of Sheffield, Digital collections
 - [Eve Lucas](https://github.com/el12kg), Accelerated taxonomy
-- Tzu Li Yang, summer intern from the National Taiwan University (NTU), Accelerated taxonomy
+- [Tzu Li Yang](TzuLiYang), summer intern from the National Taiwan University (NTU), Accelerated taxonomy
 
 ## How to contribute
 
