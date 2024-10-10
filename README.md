@@ -15,14 +15,15 @@ This repository manages a short pilot project where we have scored herbarium spe
 ## Process
 
 1. We extracted the identification page data for the families listed above
-2. For each family, Tzu Li ran a search on GBIF for occurrence records from the Kew herbarium in the family, and opened the records in gallery view. Consulting the identification page data, he selected specimen images which displayed the characteristics, recording these by creating a bookmark in his web browser, with tags for the characters. Links to run these GBIF data portal queries are given below:
+2. For each family, Tzu Li ran a search on GBIF for occurrence records from the Kew herbarium in the family, and opened the records in gallery view. Links to run these GBIF data portal queries are given below:
     - [Combretaceae](https://www.gbif.org/occurrence/gallery?dataset_key=cd6e21c8-9e8a-493a-8a76-fbf7862069e5&taxon_key=2431&advanced=1)
     - [Lythraceae](https://www.gbif.org/occurrence/gallery?dataset_key=cd6e21c8-9e8a-493a-8a76-fbf7862069e5&taxon_key=6684&advanced=1)
     - [Vochysiaceae](https://www.gbif.org/occurrence/gallery?dataset_key=cd6e21c8-9e8a-493a-8a76-fbf7862069e5&taxon_key=3231623&advanced=1)
     - [Myrtaceae](https://www.gbif.org/occurrence/gallery?dataset_key=cd6e21c8-9e8a-493a-8a76-fbf7862069e5&taxon_key=5014&advanced=1) 
     - [Melastomataceae](https://www.gbif.org/occurrence/gallery?dataset_key=cd6e21c8-9e8a-493a-8a76-fbf7862069e5&taxon_key=6683&advanced=1)
-3. The bookmark data was exported from the web browser, and is saved in this repository as [resources/bookmarks.html](resources/bookmarks.html)
-4. The HTML format bookmark data was cleaned and reformatted to a tabular datafile.
+3. Consulting the gallery view alongside the identification page data, he selected specimen images which displayed the characteristics, recording these by creating a bookmark in his web browser, with tags for the characters. Characters were organised into three categories - (i) those from the general key characters list, (ii) those from the more detailed descriptive paragraph, and (iii) those indicating habit, taken from the specimen label.
+4. The bookmark data was exported from the web browser, and is saved in this repository as [resources/bookmarks.html](resources/bookmarks.html)
+5. The HTML format bookmark data was cleaned and reformatted to a tabular datafile.
 
 ## How to run the scripts
 
