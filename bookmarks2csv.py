@@ -55,8 +55,8 @@ def parse_bookmarks_to_csv(input_file, output_file):
     # Discard the "tags" column as is no longer needed
     df.drop(columns=['tags'], inplace=True)
 
-    # Save the dataframe as a tab separated file
-    df.to_csv(output_file, sep='\t', encoding='utf8', index=False)
+    # Save the dataframe as CSV file
+    df.to_csv(output_file, sep=',', encoding='utf8', index=False)
 
 def main():
     # Set up argument parser
