@@ -16,3 +16,8 @@ data/images.zip: families2images.py data/families.csv
 	python $^ $@
 
 dlimg: data/images.zip
+
+data/gbif_download.bib: gbifqueryid2bibtex.py data/downloadquery_id.txt
+	python $^ $@
+
+bibtex: data/gbif_download.bib
