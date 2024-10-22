@@ -1,0 +1,33 @@
+name: Makefile CI
+
+on:
+  workflow_dispatch:
+      
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    
+    - uses: actions/checkout@v3
+    
+    - name: Install python dependencies
+      run: pip install -r requirements.txt
+      
+    - name: Download images
+      run: make data/images.zip
+
+    - name: Attach built artifact (images.zip) to run 
+      if: ${{ github.event_name == 'workflow_dispatch'}}
+      uses: actions/upload-artifact@v3
+      with:
+        name: images.zip
+        path: data/images.zip
+
+    - name: Attach built artifact (families.csv) to run 
+      if: ${{ github.event_name == 'workflow_dispatch'}}
+      uses: actions/upload-artifact@v3
+      with:
+        name: families.csv
+        path: data/families.csv
