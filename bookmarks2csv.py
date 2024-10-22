@@ -5,15 +5,9 @@ import re
 import pandas as pd
 from pygbif import occurrences as occ
 
-def getCatalogNumberByOccurrence(gbif_occurrence_id):
+def getOccurrence(gbif_occurrence_id):
     gbif_occ = occ.get(key = gbif_occurrence_id)
-    return gbif_occ['catalogNumber']
-
-
-def url2ImageUrl(url):
-    image_url = 'https:' + url.split('src=')[1]
-    return image_url
-
+    return gbif_occ
 
 def parse_bookmarks_to_csv(input_file, output_file):
     # Open and read the HTML file
@@ -37,10 +31,12 @@ def parse_bookmarks_to_csv(input_file, output_file):
                 gbif_occurrence_id = gbif_url_elems[gbif_url_elems.index('occurrence')+1]
                 # Split the tags by comma
                 tags = tagged_link['tags'].split(',')
-                # Get image URL from bookmarked data portal URL
-                image_url = url2ImageUrl(gbif_url)
+                # Get occurrence
+                gbif_occ = getOccurrence(gbif_occurrence_id)
                 # Get catalog number
-                catalogNumber = getCatalogNumberByOccurrence(gbif_occurrence_id)
+                catalogNumber = gbif_occ['catalogNumber']
+                # Get image URL from media section
+                image_url = gbif_occ['media'][0]['identifier']
                 # Assemble a dictionary holding all the data and save to our list
                 family_data.append({'family':family.text, 'GBIF_occurrence_ID':gbif_occurrence_id, 'catalogNumber':catalogNumber, 'image_url':image_url, 'tags':tags})
         
