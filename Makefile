@@ -1,4 +1,5 @@
 data/cleanbookmarks.html: cleanbookmarks.py resources/bookmarks.html
+	mkdir -p data
 	python $^ $@
 
 data/families.csv: bookmarks2csv.py data/cleanbookmarks.html
