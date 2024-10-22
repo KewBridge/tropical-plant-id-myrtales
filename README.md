@@ -34,6 +34,16 @@ This part of the process should achieve two things:
 
 ## How to run the scripts
 
+### Using github actions
+This is the simplest way to run the scripts as you don't need any special software, the build process runs on github infrastructure
+1. Navigate to the actions tab at the top of this screen ![image](https://github.com/user-attachments/assets/3e9de8b7-e22b-466f-a2fa-a0a235f14e15)
+2. Select "Makefile CI" in the list of actions n the left hand menu ![image](https://github.com/user-attachments/assets/47b5d7a3-529d-4139-92f3-7e0d52258090)
+3. Click "Run workflow" and select branch main and click the green button ![image](https://github.com/user-attachments/assets/a9a047da-b4d5-4f4c-be1c-1f8f3032c945)
+
+You can watch the scripts outputs as the build process runs. A completed build looks like this ![image](https://github.com/user-attachments/assets/3612a2c5-9e71-4d5c-9a0e-913713772ce7)
+You can see the output by clicking on "build" (next to the green checkmark) and you can access the build outputs (the families CSV file and the zipped images) from the artifacts list at the bottom
+
+### Locally, on your own machine
 This assumes that you have cloned the repository to a machine where you have: (a) a local installation of Python, (b) the build tool `make` and (c) a command line terminal program to run the following commands:
 
 1. Set up a virtual environment: `python -m venv env` and activate it: `source env/Scripts/activate`
