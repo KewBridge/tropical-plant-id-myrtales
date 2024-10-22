@@ -15,6 +15,9 @@ jobs:
     - name: Install python dependencies
       run: pip install -r requirements.txt
 
+    - name: echo vars
+      run:  echo ${{ vars.GBIF_USERNAME }} ${{ vars.GBIF_EMAIL }}
+
     - name: Make GBIF download
       run: make data/downloadquery_id.txt
 
