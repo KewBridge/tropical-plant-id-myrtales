@@ -14,12 +14,17 @@ jobs:
     
     - name: Install python dependencies
       run: pip install -r requirements.txt
-      
+
+    - name: Make GBIF download
+      run: make data/downloadquery_id.txt
+
     - name: Download images
       run: make data/images.zip
 
     - name: Make bibtex
-      run: make data/gbif_download.bib
+      env:
+        GBIF_PASSWORD: ${{ secrets.GBIF_PASSWORD }}
+      run: make GBIF_USERNAME=${{ vars.GBIF_USERNAME }} GBIF_EMAIL=${{ vars.GBIF_EMAIL }}data/gbif_download.bib
 
     - name: Attach built artifact (images.zip) to run 
       if: ${{ github.event_name == 'workflow_dispatch'}}
