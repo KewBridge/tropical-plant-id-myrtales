@@ -58,7 +58,7 @@ def main():
     args = parser.parse_args()
     
     # Process HTML file and output to CSV
-    convert_families_to_gbif_download_query(args.input_file, args.output_file, args.gbif_user_name, args.gbif_email_address)
+    convert_families_to_gbif_download_query(args.input_file, args.output_file)
 
 if __name__ == "__main__":
     main()
