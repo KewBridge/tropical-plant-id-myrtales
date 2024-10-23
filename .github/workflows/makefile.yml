@@ -19,6 +19,10 @@ jobs:
       run:  echo ${{ vars.GBIF_USERNAME }} ${{ vars.GBIF_EMAIL }}
 
     - name: Make GBIF download
+      env:
+        GBIF_USERNAME: ${{ vars.GBIF_USERNAME }}
+        GBIF_PASSWORD: ${{ secrets.GBIF_PASSWORD }}
+        GBIF_EMAIL: ${{ vars.GBIF_EMAIL }}
       run: make data/downloadquery_id.txt
 
     - name: Download images
