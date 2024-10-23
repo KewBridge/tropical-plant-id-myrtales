@@ -46,12 +46,21 @@ This is the simplest way to run the scripts as you don't need any special softwa
 You can watch the scripts outputs as the build process runs. A completed build looks like this ![image](https://github.com/user-attachments/assets/3612a2c5-9e71-4d5c-9a0e-913713772ce7)
 You can see the output by clicking on "build" (next to the green checkmark) and you can access the build outputs (the families CSV file and the zipped images) from the artifacts list at the bottom
 
+Github actions uses some environment variables / secrets to handle authentication to GBIF (username, password and notification email).
+
 ### Locally, on your own machine
 This assumes that you have cloned the repository to a machine where you have: (a) a local installation of Python, (b) the build tool `make` and (c) a command line terminal program to run the following commands:
 
 1. Set up a virtual environment: `python -m venv env` and activate it: `source env/Scripts/activate`
 2. Install the libraries: `pip install -r requirements.txt`
 3. Run the conversion process: `make csv`
+
+If you want to run any of the targets that need to communicate with GBIF (ie to request a GBIF download, and get a formatted citation for the GBIF download), you will need to set some environment variables that hold authentication details. Open a terminal window and type:
+```bash
+export GBIF_USERNAME=your_gbif_username
+export GBIF_PASSWORD=your_gbif_password
+export GBIF_EMAIL=email_address_for_download_notification
+```
 
 ## References
 ```bibtex
