@@ -26,8 +26,10 @@ jobs:
 
     - name: Make bibtex
       env:
+        GBIF_USERNAME: ${{ vars.GBIF_USERNAME }}
         GBIF_PASSWORD: ${{ secrets.GBIF_PASSWORD }}
-      run: make GBIF_USERNAME=${{ vars.GBIF_USERNAME }} GBIF_EMAIL=${{ vars.GBIF_EMAIL }}data/gbif_download.bib
+        GBIF_EMAIL: ${{ vars.GBIF_EMAIL }}
+      run: make data/gbif_download.bib
 
     - name: Attach built artifact (images.zip) to run 
       if: ${{ github.event_name == 'workflow_dispatch'}}
