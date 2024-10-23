@@ -18,9 +18,6 @@ def convert_families_to_gbif_download_query(inputfile, outputfile):
     predicates['key'] = 'GBIF_ID'
     predicates['values'] = df.GBIF_occurrence_ID.to_list()
 
-    occ_sample = occ.get(key=df.GBIF_occurrence_ID.to_list()[0])
-    print(json.dumps(occ_sample, indent=4))
-
     # Use pygbif to download
     gbif_username = os.getenv('GBIF_USERNAME')
     gbif_password = os.getenv('GBIF_PASSWORD')
