@@ -8,7 +8,7 @@ data/families.csv: bookmarks2csv.py data/cleanbookmarks.html
 csv:  data/families.csv
 
 data/downloadquery_id.txt: families2gbifdownloadquery.py data/families.csv
-	python $^ --gbif_user_name ${GBIF_USERNAME} --gbif_email_address ${GBIF_EMAIL} $@
+	python $^ $@
 
 dlreq: data/downloadquery_id.txt
 
