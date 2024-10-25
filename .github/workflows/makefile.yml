@@ -28,6 +28,9 @@ jobs:
     - name: Download images
       run: make data/images.zip
 
+    - name: Build heatmap chart
+      run: make data/heatmap.png
+
     - name: Make bibtex
       env:
         GBIF_USERNAME: ${{ vars.GBIF_USERNAME }}
@@ -54,4 +57,11 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: gbif_download.bib
-        path: data/gbif_download.bib        
+        path: data/gbif_download.bib
+
+    - name: Attach built artifact (heatmap.png) to run 
+    if: ${{ github.event_name == 'workflow_dispatch'}}
+    uses: actions/upload-artifact@v4
+    with:
+        name: heatmap.png
+        path: data/heatmap.png        
