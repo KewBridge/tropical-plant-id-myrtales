@@ -1,6 +1,8 @@
 import argparse
 import pandas as pd
 import matplotlib.pyplot as plt
+import matplotlib
+matplotlib.use("Agg")
 import seaborn as sns
 
 def main():
@@ -9,7 +11,7 @@ def main():
     parser = argparse.ArgumentParser(description="Generate trait heatmaps from family data")
     parser.add_argument("input_file", help="Path to the input CSV file")
     parser.add_argument("output_percent_traits_file", help="Output for percent traits scored heatmap")
-    parser.add_argument("output_traits_counts_file", help="Output for total traits count heatmap")
+    # parser.add_argument("output_traits_counts_file", help="Output for total traits count heatmap")
     
     # parse arguments
     args = parser.parse_args()
@@ -39,16 +41,16 @@ def main():
     plt.savefig(args.output_percent_traits_file)
 
     # Total number of traits scored regardless of family df
-    traits_scored = families[trait_columns.columns].sum()
-    traits_scored_df = pd.DataFrame([traits_scored], index=['Count'])
+    # traits_scored = families[trait_columns.columns].sum()
+    # traits_scored_df = pd.DataFrame([traits_scored], index=['Count'])
 
     # Save this as a heatmap
-    plt.figure(figsize=(12, 2))
-    sns.heatmap(traits_scored_df, cmap='coolwarm', annot=False, linewidths=0.5)
-    plt.title('Number of Times Each Trait is Scored')
-    plt.xlabel('Traits')
-    plt.yticks([])
-    plt.savefig(args.output_traits_counts_file)
+    # plt.figure(figsize=(12, 2))
+    # sns.heatmap(traits_scored_df, cmap='coolwarm', annot=False, linewidths=0.5)
+    # plt.title('Number of Times Each Trait is Scored')
+    # plt.xlabel('Traits')
+    # plt.yticks([])
+    # plt.savefig(args.output_traits_counts_file)
 
 if __name__ == "__main__":
         main()
