@@ -21,3 +21,6 @@ data/gbif_download.bib: gbifqueryid2bibtex.py data/downloadquery_id.txt
 	python $^ $@
 
 bibtex: data/gbif_download.bib
+
+data/heatmap.png: heatmaps_and_stats.py data/families.csv
+        python $^ $@
